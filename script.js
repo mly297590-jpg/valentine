@@ -8,6 +8,8 @@ function selectOption(option) {
         flashRainbowColors(function() {
             document.getElementById('question').style.display = 'none'; // Hide the question
             displayCatHeart(); // Display the cat-heart.gif
+            // Play sound
+    yesAudio.play().catch(err => console.log(err));
         });
     } else if (option === 'no') {
         // Change text on the "No" button to "You sure?"
@@ -37,7 +39,7 @@ function flashRainbowColors(callback) {
         if (callback) {
             callback();
         }
-    }, 2000); // Flash colors for 2 seconds
+    }, 20000); // Flash colors for 20 seconds
 }
 
 // Function to display the cat.gif initially
@@ -75,6 +77,11 @@ function displayCatHeart() {
         document.getElementById('options').style.display = 'none';
     };
 }
+const yesAudio = new Audio('yes-sound.m4a');
+yesAudio.volume = 0.7; // optional
+
+
+
 
 // Display the cat.gif initially
 displayCat();
